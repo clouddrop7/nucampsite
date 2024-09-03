@@ -2,6 +2,13 @@ import { Button, Label, Col, FormGroup} from 'reactstrap';
 import { Formik, Field, Form} from 'formik';
 
 const ContactForm = () => {
+
+    const handleSubmit = (values, { resetForm }) => {
+        console.log(values);
+        console.log('in JSON format:', JSON.stringify(values));
+        resetForm();
+    }
+
     return (
         <Formik initialValues={{
             firstName: '',
@@ -11,11 +18,13 @@ const ContactForm = () => {
             agree: false,
             contactType: 'By Phone',
             feedback: ''
-        }}>
+        }}
+            onSubmit={handleSubmit}
+        >
 
         <Form>
             <FormGroup row>
-                <Label htmlfor='firstName'>
+                <Label htmlFor='firstName'>
                     first Name
                 </Label>
                 <Col md='10'>
@@ -23,7 +32,7 @@ const ContactForm = () => {
                 </Col>
             </FormGroup>
             <FormGroup row>
-                <Label htmlfor='lastName'>
+                <Label htmlFor='lastName'>
                     Last Name
                 </Label>
                 <Col  md='10'>
@@ -31,7 +40,7 @@ const ContactForm = () => {
                 </Col>
             </FormGroup>
             <FormGroup row>
-                <Label htmlfor='phoneNum'>
+                <Label htmlFor='phoneNum'>
                     Phone Number
                 </Label>
                 <Col  md='10'>
@@ -39,7 +48,7 @@ const ContactForm = () => {
                 </Col>
             </FormGroup>
             <FormGroup row>
-                <Label htmlfor='email'>
+                <Label htmlFor='email'>
                     Email
                 </Label>
                 <Col  md='10'>
@@ -63,14 +72,18 @@ const ContactForm = () => {
                 </Col>
             </FormGroup>
             <FormGroup row>
-                <Label htmlfor='feedback' md='2'>
+                <Label htmlFor='feedback' md='2'>
                     Your Feedback
                 </Label>
                 <Col md='10'>
                     <Field className='form-control' name='feedback' as='textarea' rows='12' />
                 </Col>
             </FormGroup>
-            <FormGroup row></FormGroup>
+            <FormGroup row>
+                <Col md={{size: 10, offset: 2}}>
+                    <Button type='submit' color='primary'>Send Feedback</Button>
+                </Col>
+            </FormGroup>
         </Form>
 
         </Formik>
