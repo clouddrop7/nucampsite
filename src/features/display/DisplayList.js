@@ -4,9 +4,15 @@ import { selectFeaturedCampsite } from '../campsites/campsitesSlice';
 import { selectFeaturedPromotion } from '../promotions/promotionsSlice';
 import { selectFeaturedPartner } from '../partners/partnersSlice';
 import AnimatedDisplayCard from './AnimatedDisplayCard';
+import { useSelector } from 'react-redux';
 
 const DisplayList = () => {
-    const items = [selectFeaturedCampsite(), selectFeaturedPromotion(),selectFeaturedPartner()];
+    const items = useSelector((state) => 
+        [selectFeaturedCampsite(), selectFeaturedPromotion(),selectFeaturedPartner()]
+    )
+
+    console.log('display items:', items);
+
     return (
         <Row>
             {items.map((item, idx) => (
