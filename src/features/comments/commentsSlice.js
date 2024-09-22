@@ -1,9 +1,20 @@
 import { COMMENTS } from '../../app/shared/COMMENTS';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     commentsArray: COMMENTS,
 }
+
+// export const fetchComments = createAsyncThunk('comments/fetchComments', async () => {
+
+//     const response = await fetch('http://localhost:3001/comments');
+//     if(!response.ok) {
+//         return Promise.reject(`Unable to fetch, status: ${response.status}`);
+//     } else {
+//         const
+//     }
+// });
 
 const commentsSlice = createSlice({
     name: 'comments',
