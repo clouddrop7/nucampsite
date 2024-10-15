@@ -1,5 +1,4 @@
 import { Row, Col } from 'reactstrap';
-import DisplayCard from './DisplayCard';
 import { selectFeaturedCampsite } from '../campsites/campsitesSlice';
 import { selectFeaturedPromotion } from '../promotions/promotionsSlice';
 import { selectFeaturedPartner } from '../partners/partnersSlice';
@@ -16,7 +15,7 @@ const DisplayList = () => {
         selectFeaturedPartner(state)
     ]);
 
-    console.log('display:', items);
+    // console.log('display:', items);
 
     return (
         <Row>

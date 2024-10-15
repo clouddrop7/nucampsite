@@ -5,7 +5,7 @@ import { mapImageURL } from '../../utils/mapImageURL';
 export const fetchCampsites = createAsyncThunk(
     'campsites/fetchCampsites',
     async () => {
-        const response = await fetch(baseUrl+ 'campsites');
+        const response = await fetch(baseUrl + 'campsites');
         if(!response.ok) {
             return Promise.reject(`Unable to fetch, status: ${response.status}`);
         }
@@ -62,7 +62,3 @@ export const selectFeaturedCampsite = (state) => {
         isLoading: state.campsites.errMsg
     }
 }
-
-// export const selectRandomCampsite = () => {
-//     return CAMPSITES[Math.floor(Math.random() * CAMPSITES.length)];
-// };
